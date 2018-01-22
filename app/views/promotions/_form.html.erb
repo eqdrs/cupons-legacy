@@ -1,0 +1,22 @@
+<div class='col-md-4'></div>
+<div class='col-md-4'>
+<h1><%= translate('.title') %></h1>
+<hr>
+<%= simple_form_for @promotion, html:{class:'ls-form row'},
+                                defaults: {wrapper_html: { class: 'ls-label' },
+                                           label_html: {class: 'ls-label-text'},
+                                           input_html: { class: 'ls-field-lg'} } do |f| %>
+
+  <fieldset>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :discount %>
+    <%= f.input :start_at, as: :date, html5: true, error: @promotion.errors %>
+    <%= f.input :prefix %>
+    <%= f.input :quantity %>
+    <%= f.input :duration %>
+  </fieldset>
+    <%= f.button :submit, t('.submit'), id: 'commit', class: 'ls-btn-primary ls-btn-block ls-btn-lg'%>
+<% end %>
+</div>
+<div class='col-md-4'></div>

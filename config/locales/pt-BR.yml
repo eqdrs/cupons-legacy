@@ -1,0 +1,67 @@
+'pt-BR':
+  support:
+    array:
+      words_connector: ', '
+  activerecord:
+    models:
+      promotion:
+        one: 'Promoção'
+        other: 'Promoções'
+    errors:
+      models:
+        promotion:
+          attributes:
+            prefix:
+              too_short: 'Precisa ter pelo menos três caracteres'
+        coupon:
+          attributes:
+            code:
+              too_short: 'O código do cupom é muito curto'
+    attributes:
+      promotion:
+        title: 'Título: '
+        description: 'Descrição: '
+        discount: 'Desconto: '
+        start_at: 'Data de início: '
+        end_at: 'Data de encerramento: '
+        prefix: 'Prefixo: '
+        quantity: 'Quantidade de cupons: '
+        duration: 'Duração: '
+  errors:
+    messages:
+      blank: 'Este campo é obrigatório'
+      not_a_number: 'Somente números são permitidos'
+      greater_than: 'Deve ser maior que zero'
+      valid_date: 'Tem que ser uma data válida'
+      taken: 'Este campo deve ser único'
+      record_invalid: 'Este registro é inválido'
+  layouts:
+    application:
+      title: 'Promoção'
+      subtitle: 'Promoção'
+      notification: 'Notificações'
+      feedback: 'Feedback'
+      help: 'Ajuda'
+      tour: 'Fazer um Tour'
+      guide: '> Guia'
+      wiki: '> Wiki'
+      logout: 'Sair'
+      promotions: 'Promoções'
+      new_promotion: 'Nova Promoção'
+      hello: "Olá, %{email}"
+    login:
+      title: 'Login Promoção'
+
+
+  devise:
+    sessions:
+      new:
+        user: 'Usuário'
+        password: 'Senha'
+        submit: 'Log in'
+
+
+  promotions:
+    form:
+      title: 'Cadastre sua promoção: '
+      submit: 'Criar Promoção'

@@ -1,0 +1,24 @@
+<!-- <h2>Log in</h2> -->
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+                    defaults: {wrapper_html: { class: 'ls-label' },
+                               label_html: {class: 'ls-label-text ls-hidden-accessible'},
+                               input_html: { class: 'ls-field-lg'} }) do |f| %>
+    <p>
+      <%= flash[:alert] %>
+    </p>
+
+    <%= f.input :email, autofocus: true, required: true,
+                        input_html: {class: 'ls-login-bg-user',
+                                     placeholder: t('.user')}
+                         %>
+
+    <%= f.input :password, autocomplete: "off",
+                           input_html: {placeholder: t('.password'),
+                                        class: 'ls-login-bg-password' } %>
+
+    <% if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, as: :boolean %>
+    <% end %>
+
+    <%= f.submit t('.submit'), class: 'ls-btn-primary ls-btn-block ls-btn-lg' %>
+<% end %>

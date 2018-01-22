@@ -1,0 +1,35 @@
+<div class='col-md-3 col-sm-6'>
+  <div class='ls-box'>
+    <header class='ls-box-head'>
+      <h2 class='ls-title-3'><%= promotion.title %></h2>
+    </header>
+    <div class='ls-box-body'>
+      <p class="description"><%= promotion.description %></p>
+      <p>
+        <small>Desconto:</small>
+        <strong><%= promotion.discount %>%</strong>
+      </p>
+      <p>
+        <small>Início:</small>
+        <%= promotion.start_at %>
+      </p>
+      <p>
+        <small>Expira em:</small>
+        <%= promotion.end_at %>
+      </p>
+      <p>
+        <small>Prefixo:</small>
+        <%= promotion.prefix %>
+      </p>
+      <p>
+        <small>Qtde cupons:</small>
+        <%= promotion.quantity %>
+      </p>
+      <p>
+        <small>Duração:</small>
+        <%= promotion.duration %>
+        <small>dias.</small>
+      </p>
+    </div>
+  </div>
+</div>
