@@ -7,7 +7,7 @@ RSpec.describe Promotion, type: :model do
 
   describe 'validation' do
     it 'valid promotion' do
-      promotion = Promotion.new(attributes_for(:promotion))
+      promotion = build(:promotion)
       expect(promotion).to be_valid
     end
 
@@ -23,8 +23,7 @@ RSpec.describe Promotion, type: :model do
     end
 
     it 'prefix must have at least 3 characters Success' do
-      promotion = Promotion.new(attributes_for(:promotion))
-      promotion.prefix = 'DEV'
+      promotion = build(:promotion, prefix: 'DEV')
       expect(promotion).to be_valid
     end
 

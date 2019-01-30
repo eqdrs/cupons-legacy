@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224192456) do
+ActiveRecord::Schema.define(version: 20190130013328) do
+
+  create_table "promotion_approvals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "promotion_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "promotion_approvals", ["promotion_id"], name: "index_promotion_approvals_on_promotion_id"
+  add_index "promotion_approvals", ["user_id"], name: "index_promotion_approvals_on_user_id"
 
   create_table "promotions", force: :cascade do |t|
     t.string   "title"
@@ -24,7 +34,10 @@ ActiveRecord::Schema.define(version: 20160224192456) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "duration"
+    t.integer  "user_id"
   end
+
+  add_index "promotions", ["user_id"], name: "index_promotions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

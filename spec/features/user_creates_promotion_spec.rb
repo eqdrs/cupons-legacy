@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Create Promotion' do
   scenario 'success' do
-    login_user
-    promotion = build(:promotion)
+    user = login_user
+    promotion = build(:promotion, user: user)
 
     visit new_promotion_path
 
@@ -18,6 +18,8 @@ feature 'Create Promotion' do
     click_on 'commit'
 
     expect(page).to have_content(promotion.title)
+    expect(page).to have_content("Criada por: #{promotion.user.email}")
+    expect(page).to have_content('Pendente de aprovação')
     expect(page).to have_content(promotion.description)
     expect(page).to have_content(promotion.discount)
     expect(page).to have_content(promotion.start_at)

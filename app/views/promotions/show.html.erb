@@ -6,3 +6,7 @@
 </div>
 
 <%= render @promotion %>
+
+<% if @promotion.promotion_approval.nil? && !@promotion.author?(current_user) %>
+  <%= link_to 'Aprovar', approve_promotion_path, method: :post %>
+<% end %>

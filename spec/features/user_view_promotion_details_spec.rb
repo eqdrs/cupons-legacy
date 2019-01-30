@@ -10,6 +10,8 @@ feature 'User view promotion details' do
 
     expect(current_path).to eq promotion_path(promotion)
     expect(page).to have_content(promotion.title)
+    expect(page).to have_content("Criada por: #{promotion.user.email}")
+    expect(page).to have_content('Pendente de aprovação')
     expect(page).to have_content(promotion.description)
     expect(page).to have_content('Desconto:')
     expect(page).to have_content(promotion.discount)

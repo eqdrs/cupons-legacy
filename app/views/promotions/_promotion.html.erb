@@ -4,6 +4,12 @@
       <h2 class='ls-title-3'><%= link_to promotion.title, promotion %></h2>
     </header>
     <div class='ls-box-body'>
+      <p>Criada por: <%= promotion.user.email %></p>
+      <% if promotion.promotion_approval.nil? %>
+        <p><strong>Pendente de aprovação</strong></p>
+      <% else %>
+        <p>Aprovada por: <%= promotion.promotion_approval.user.email %></p>
+      <% end %>
       <p class="description"><%= promotion.description %></p>
       <p>
         <small>Desconto:</small>
