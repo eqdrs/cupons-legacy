@@ -54,19 +54,60 @@ feature 'Create Promotion' do
   end
 
   scenario 'only positive discounts values allowed' do
-    skip
+    login_user
+    promotion = build(:promotion)
+    visit new_promotion_path
+
+    fill_in 'promotion[title]', with: promotion.title
+    fill_in 'promotion[description]', with: promotion.description
+    fill_in 'promotion[discount]', with: -30
+    fill_in 'promotion[start_at]', with: promotion.start_at
+    fill_in 'promotion[prefix]', with: promotion.prefix
+    fill_in 'promotion[quantity]', with: promotion.quantity
+    fill_in 'promotion[duration]', with: promotion.duration
+
+    click_on 'commit'
+
+    expect(page).to have_content('Deve ser maior que zero')
   end
 
   scenario 'only positive quantities values allowed' do
-    skip
+    login_user
+    promotion = build(:promotion)
+    visit new_promotion_path
+
+    fill_in 'promotion[title]', with: promotion.title
+    fill_in 'promotion[description]', with: promotion.description
+    fill_in 'promotion[discount]', with: promotion.discount
+    fill_in 'promotion[start_at]', with: promotion.start_at
+    fill_in 'promotion[prefix]', with: promotion.prefix
+    fill_in 'promotion[quantity]', with: -30
+    fill_in 'promotion[duration]', with: promotion.duration
+
+    click_on 'commit'
+
+    expect(page).to have_content('Deve ser maior que zero')
   end
 
   scenario 'only positive duration values allowed' do
-    skip
+    login_user
+    promotion = build(:promotion)
+    visit new_promotion_path
+
+    fill_in 'promotion[title]', with: promotion.title
+    fill_in 'promotion[description]', with: promotion.description
+    fill_in 'promotion[discount]', with: promotion.discount
+    fill_in 'promotion[start_at]', with: promotion.start_at
+    fill_in 'promotion[prefix]', with: promotion.prefix
+    fill_in 'promotion[quantity]', with: promotion.quantity
+    fill_in 'promotion[duration]', with: -30
+
+    click_on 'commit'
+
+    expect(page).to have_content('Deve ser maior que zero')
   end
 
   scenario 'date must have format dd/mm/yyyy' do
-    skip
     login_user
     promotion = build(:promotion)
     visit new_promotion_path
@@ -78,7 +119,6 @@ feature 'Create Promotion' do
     fill_in 'promotion[prefix]', with: promotion.prefix
     fill_in 'promotion[quantity]', with: promotion.quantity
     fill_in 'promotion[duration]', with: promotion.duration
-
     click_on 'commit'
 
     expect(page).to have_content('Tem que ser uma data válida')

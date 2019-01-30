@@ -17,11 +17,15 @@ RSpec.describe Promotion, type: :model do
     end
 
     it 'prefix must have at least 3 characters - Failed' do
-      skip
+      promotion = Promotion.new(attributes_for(:promotion))
+      promotion.prefix = 'A'
+      expect(promotion).to_not be_valid
     end
 
     it 'prefix must have at least 3 characters Success' do
-      skip
+      promotion = Promotion.new(attributes_for(:promotion))
+      promotion.prefix = 'DEV'
+      expect(promotion).to be_valid
     end
 
     it 'invalid start_at date' do

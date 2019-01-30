@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'therubyracer'
 
 # Must be removed, only necessary for Windows systems...
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
