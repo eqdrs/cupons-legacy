@@ -27,4 +27,15 @@ feature 'User approves promotion' do
     expect(page).to_not have_link 'Aprovar'
     expect(page).to_not have_link 'Recusar'
   end
+
+  scenario 'and can\'t access approval route' do
+    creator = login_user
+    promotion = create(:promotion, user: creator)
+
+    page.driver.submit :post, '/promotions/1/approve', {}
+
+    expect(current_path).to eq root_path
+    expect(page).to have_content('Você não pode aprovar esta promoção')
+    expect(page).to have_content('Pendente de aprovação')
+  end
 end

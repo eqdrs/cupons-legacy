@@ -1,6 +1,8 @@
 require 'ffaker'
 require 'date'
 
+user = FactoryGirl.create(:user, email: 'admin@apicoupons.com')
+
 Promotion.create!({
   title: 'Quero ser Dev',
   description: 'Desconto para os selecionados do quero ser dev para utilizarem os produtos da locaweb.',
@@ -8,7 +10,8 @@ Promotion.create!({
   start_at: DateTime.now,
   prefix: 'SOMOSDEV',
   quantity: 14,
-  duration: 180
+  duration: 180,
+  user: user
 })
 
 Promotion.create!({
@@ -18,7 +21,6 @@ Promotion.create!({
   start_at: DateTime.now,
   prefix: 'REVLOC',
   quantity: 100,
-  duration: 180
+  duration: 180,
+  user: user
 })
-
-FactoryGirl.create(:user, email: 'admin@apicoupons.com')

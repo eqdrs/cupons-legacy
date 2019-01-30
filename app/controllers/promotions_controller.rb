@@ -1,5 +1,6 @@
 class PromotionsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_author, only: %i[approve]
 
   def index
     @promotions = Promotion.all
@@ -31,6 +32,13 @@ class PromotionsController < ApplicationController
   end
 
   private
+
+  def verify_author
+    @promotion = Promotion.find(params[:id])
+    if @promotion.author?(current_user)
+      redirect_to root_path, notice: 'Você não pode aprovar esta promoção'
+    end
+  end
 
   def promotion_params
     params.require(:promotion)
