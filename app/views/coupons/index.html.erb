@@ -1,0 +1,4 @@
+<h2>Cupons da promoção <%= @promotion.title %></h2>
+<% @coupons.each do |coupon| %>
+  <p><%= "#{coupon.code} (#{coupon.status})"%></p>
+<% end %>

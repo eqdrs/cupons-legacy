@@ -12,7 +12,12 @@ class Promotion < ActiveRecord::Base
 
   has_one :promotion_approval
 
-  def generate_coupons(quantity = nil)
+  def generate_coupons(current_user)
+    (1..quantity).each do |i|
+      code = "#{prefix}#{i.to_s.rjust(4, '0')}"
+      Coupon.create(code: code, promotion: self, user: current_user,
+                    status: :active)
+    end
   end
 
   def set_end_at

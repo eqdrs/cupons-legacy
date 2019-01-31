@@ -30,7 +30,7 @@ feature 'User approves promotion' do
 
   scenario 'and can\'t access approval route' do
     creator = login_user
-    promotion = create(:promotion, user: creator)
+    create(:promotion, user: creator)
 
     page.driver.submit :post, '/promotions/1/approve', {}
 

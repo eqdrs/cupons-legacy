@@ -1,6 +1,6 @@
 class PromotionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :verify_author, only: %i[approve]
+  before_action :verify_author, only: %i( approve )
 
   def index
     @promotions = Promotion.all
@@ -28,7 +28,13 @@ class PromotionsController < ApplicationController
     @promotion = Promotion.find(params[:id])
     @promotion_approval = PromotionApproval.create(promotion: @promotion,
                                                    user: current_user)
-    redirect_to @promotion, notice: 'Promoção aprovada com sucesso'
+    redirect_to @promotion, notice: 'Promoção aprovada com sucesso!'
+  end
+
+  def generate_coupons
+    @promotion = Promotion.find(params[:id])
+    @promotion.generate_coupons(current_user)
+    redirect_to @promotion, notice: 'Cupons emitidos com sucesso!'
   end
 
   private

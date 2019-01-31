@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :promotion_approvals
   has_many :promotions
+  has_many :coupons
 end

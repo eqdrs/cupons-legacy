@@ -10,3 +10,9 @@
 <% if @promotion.promotion_approval.nil? && !@promotion.author?(current_user) %>
   <%= link_to 'Aprovar', approve_promotion_path, method: :post %>
 <% end %>
+
+<% if !@promotion.promotion_approval.nil? && @promotion.coupons.empty? %>
+  <%= link_to 'Gerar cupons', generate_coupons_promotion_path, method: :post %>
+<% elsif !@promotion.coupons.empty? %>
+  <%= link_to 'Ver cupons gerados', coupons_path(@promotion) %>
+<% end %>
