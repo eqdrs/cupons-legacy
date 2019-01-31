@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       resources :coupons, only: %i[index]
     end
   end
+
+  get 'burn', to: 'coupons#burn_form'
+  post 'burn', to: 'coupons#burn_coupon'
+  
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

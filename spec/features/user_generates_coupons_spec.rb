@@ -33,6 +33,6 @@ feature 'User generates coupons' do
                                          "promoção #{promotion.title}")
     expect(page).to have_content('DEV0001')
     expect(page).to have_content('DEV0002')
-    expect(page).to have_content('DEV0002')
+    expect(page).to have_content('DEV0003')
   end
 end

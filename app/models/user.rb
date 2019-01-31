@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :promotion_approvals
   has_many :promotions
   has_many :coupons
+  has_many :coupon_burnings
 end

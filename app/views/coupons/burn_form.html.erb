@@ -1,0 +1,7 @@
+<%= form_tag burn_path, method: :post do %>
+  <%= label_tag :code, 'Código do cupom'%>
+  <%= text_field_tag :code %>
+  <%= label_tag :reason, 'Motivo' %>
+  <%= text_field_tag :reason %>
+  <%= submit_tag 'Queimar' %>
+<% end %>
