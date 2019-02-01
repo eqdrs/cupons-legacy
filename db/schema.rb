@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131021806) do
+ActiveRecord::Schema.define(version: 20190201021526) do
 
   create_table "coupon_burnings", force: :cascade do |t|
     t.integer  "coupon_id"
@@ -28,9 +28,11 @@ ActiveRecord::Schema.define(version: 20190131021806) do
     t.string   "code"
     t.integer  "status"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "promotion_id"
+    t.string   "app"
+    t.string   "purchase_number"
   end
 
   add_index "coupons", ["promotion_id"], name: "index_coupons_on_promotion_id"

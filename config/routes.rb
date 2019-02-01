@@ -14,4 +14,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
+
+  namespace :api, defaults: { format: :JSON } do
+    namespace :v1 do
+      get 'coupons/:code', to: 'coupons#show'
+      post 'coupons/burn/:code', to: 'coupons#use_coupon'
+    end
+  end
 end
