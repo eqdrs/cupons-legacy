@@ -1,6 +1,6 @@
 # Cupons
 
-O sistema de Cupons Locaweb é utilizado pelo time de MKT para criar promoções
+O sistema de Cupons é utilizado pelo time de MKT para criar promoções
 que são oferecidas tanto em meios digitais (campanhas online etc) como em mídias
 impressas (eventos, revistas etc).
 
@@ -86,8 +86,6 @@ Cupons já consumidos devem registrar:
 O acesso a aplicação poderá ser feito por usuários previamente cadastrados. O
 acesso será garantido através do uso de um email de identificação e de uma
 senha.
-
-Somente usuários com emails @locaweb.com.br podem se cadastrar na plataforma.
 
 ## Interfaces
 
