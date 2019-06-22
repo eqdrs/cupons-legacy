@@ -12,7 +12,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
+gem 'devise', '>= 4.6.0'
 gem 'therubyracer'
 
 # Must be removed, only necessary for Windows systems...
@@ -24,7 +24,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'capybara'
-  gem 'rubocop'
+  gem 'rubocop', '>= 0.49.0'
   gem 'factory_girl_rails'
   gem 'ffaker'
 end
